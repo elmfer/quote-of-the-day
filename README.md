@@ -19,6 +19,8 @@ A quote of the day web application.
 
 ## Screenshots
 
+Insert Screenshots here
+
 ## License
 
 Refer to LICENSE
