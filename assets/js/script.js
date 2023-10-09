@@ -29,6 +29,12 @@ function celebrityAPI() {
     .then(function (data) {
       console.log(data);
       //Have to access data array and use index numbers to access object. Helps access specific data.
+      $("#celebrity-details").removeClass("is-invisible");
+      ageEl.textContent = "Age: " + data[0].age;
+      birthdayEl.textContent = "Birthday: " + data[0].birthday;
+      nationalityEl.textContent = "Nationality: " + data[0].nationality;
+      occupationEl.textContent = "Occupation: " + data[0].occupation;
+      networthElEl.textContent = "Networth: " + data[0].networth;
       console.log(data[0].age);
       console.log(data[0].birthday);
     });
