@@ -23,7 +23,18 @@ function celebrityAPI() {
     headers: { "X-Api-Key": APIKey },
     contentType: "application/json",
   };
-  fetch(celebrityURL, options)
+
+  var imageURL = `https://bing-image-search1.p.rapidapi.com/images/search?q=${name}&count=1`;
+
+  var options1 = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "efe0cfc5fbmsh69b68adaa19d16ep1ae208jsnc53687b13ad7",
+      "X-RapidAPI-Host": "bing-image-search1.p.rapidapi.com",
+    },
+  };
+
+  fetch(celebrityURL, options, imageURL, options1)
     .then(function (response) {
       return response.json();
     })
@@ -35,8 +46,8 @@ function celebrityAPI() {
       ageEl.textContent = "Age: " + data[0].age;
       birthdayEl.textContent = "Birthday: " + data[0].birthday;
       nationalityEl.textContent = "Nationality: " + data[0].nationality;
-      occupationEl.textContent = "Occupation: " + data[0].occupation;
-      networthEl.textContent = "Networth: " + data[0].networth;
+      occupationEl.textContent = "Occupation: " + data[0].occupation[1];
+      networthEl.textContent = "Networth: " + data[0].net_worth;
       console.log(data[0].age);
       console.log(data[0].birthday);
     });

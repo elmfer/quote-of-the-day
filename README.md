@@ -11,6 +11,9 @@ A quote of the day web application.
 - https://api-ninjas.com/api/celebrity
 - https://api.jquery.com/removeclass/
 - https://bulma.io/documentation/helpers/visibility-helpers/
+- https://fonts.google.com/specimen/Alegreya+Sans+SC
+- https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-image-search1
+- https://stackoverflow.com/questions/48277473/center-image-in-bulma
 
 ## Contributors
 

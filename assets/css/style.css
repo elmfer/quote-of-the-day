@@ -11,12 +11,24 @@ body {
 }
 
 header {
-  background: rgb(0,105,216);
-  background: linear-gradient(0deg, rgba(0,105,216,1) 0%, rgba(88,153,255,1) 100%);
+  background: rgb(0, 105, 216);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 105, 216, 1) 0%,
+    rgba(88, 153, 255, 1) 100%
+  );
 }
 
 footer {
   height: 1in;
-  background: linear-gradient(0deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
   width: 100%;
+}
+
+#celebrity-name {
+  font-family: Alegreya Sans SC, sans-serif;
 }
