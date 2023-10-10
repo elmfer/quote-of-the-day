@@ -1,5 +1,6 @@
 var celebrityInputEl = document.querySelector("#celebrity-input");
 var submitNameEl = document.querySelector("#submit-name-button");
+var celebrityNameEl = document.querySelector("#celebrity-name");
 var ageEl = document.querySelector("#age");
 var birthdayEl = document.querySelector("#birthday");
 var nationalityEl = document.querySelector("#nationality");
@@ -30,11 +31,12 @@ function celebrityAPI() {
       console.log(data);
       //Have to access data array and use index numbers to access object. Helps access specific data.
       $("#celebrity-details").removeClass("is-invisible");
+      celebrityNameEl.textContent = data[0].name;
       ageEl.textContent = "Age: " + data[0].age;
       birthdayEl.textContent = "Birthday: " + data[0].birthday;
       nationalityEl.textContent = "Nationality: " + data[0].nationality;
       occupationEl.textContent = "Occupation: " + data[0].occupation;
-      networthElEl.textContent = "Networth: " + data[0].networth;
+      networthEl.textContent = "Networth: " + data[0].networth;
       console.log(data[0].age);
       console.log(data[0].birthday);
     });
