@@ -11,6 +11,7 @@ A quote of the day web application.
 - https://api-ninjas.com/api/celebrity
 - https://api.jquery.com/removeclass/
 - https://bulma.io/documentation/helpers/visibility-helpers/
+- https://fonts.google.com/specimen/Alegreya+Sans+SC
 
 ## Contributors
 
