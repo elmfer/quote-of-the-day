@@ -59,7 +59,9 @@ function celebrityAPI() {
     })
     .then(function (data) {
       console.log(data);
-      celebrityImageEl.src = data.value[0].thumbnailUrl;
+      //celebrityImageEl.src = data.value[0].thumbnailUrl;
+      celebrityImageEl.style.backgroundImage =
+      `url(\"${data.value[0].thumbnailUrl}\")`;
     });
 }
 

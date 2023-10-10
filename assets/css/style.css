@@ -32,3 +32,11 @@ footer {
 #celebrity-name {
   font-family: Alegreya Sans SC, sans-serif;
 }
+
+#celebrity-image {
+  width: 1.9in;
+  background: gray;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
+}
