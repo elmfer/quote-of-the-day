@@ -46,7 +46,7 @@ function celebrityAPI() {
       ageEl.textContent = "Age: " + data[0].age;
       birthdayEl.textContent = "Birthday: " + data[0].birthday;
       nationalityEl.textContent = "Nationality: " + data[0].nationality;
-      occupationEl.textContent = "Occupation: " + data[0].occupation;
+      occupationEl.textContent = "Occupation: " + data[0].occupation[1];
       networthEl.textContent = "Networth: " + data[0].net_worth;
       console.log(data[0].age);
       console.log(data[0].birthday);
