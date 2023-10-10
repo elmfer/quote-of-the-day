@@ -6,6 +6,10 @@
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
 }
 
+body {
+  min-height: 100vh;
+}
+
 header {
   background: rgb(0,105,216);
   background: linear-gradient(0deg, rgba(0,105,216,1) 0%, rgba(88,153,255,1) 100%);
@@ -14,4 +18,5 @@ header {
 footer {
   height: 1in;
   background: linear-gradient(0deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+  width: 100%;
 }
