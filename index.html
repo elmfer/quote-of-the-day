@@ -13,11 +13,12 @@
   </head>
   <body>
     <header
-      class="has-background-info has-text-white is-size-1 has-text-centered"
+      class="has-background-info has-text-white is-size-1 has-text-centered p-6"
     >
-      <h1>Quote Of The Day</h1>
-      <div id="presentDay" class="is-size-2"></div>
+      <h1 class="title is-1 has-text-white">Quote Of The Day</h1>
+      <h3 id="presentDay" class="is-size-3"></h3>
     </header>
+
     <div class="box has-text-centered m-6">
       <h2 id="quote" class="title is-2 is-italic">
         "The quote of the day is the best way to start the day!"
@@ -26,28 +27,31 @@
       <button class="button is-info is-focused">Next Quote >>></button>
     </div>
 
-    <div class="box has-text-centered m-6">
-      <input
-        class="input is-focused"
-        type="text"
-        placeholder="Focused input"
-        id="celebrity-input"
-      />
-      <input
-        class="button is-primary is-outlined"
-        type="submit"
-        value="Submit input"
-        id="submit-name-button"
-      />
-    </div>
+    <div class="columns mx-6">
+      <div class="column is-one-third box mr-6">
+        <div class="field">
+          <label class="label">Celebrity Name</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Celebrity Name" id="celebrity-input">
+          </div>
+        </div>
 
-    <div class="box has-text-centered m-6 is-invisible" id="celebrity-details">
-      <h2 class="title is-2 is-italic" id="celebrity-name"></h2>
-      <div id="age"></div>
-      <div id="birthday"></div>
-      <div id="nationality"></div>
-      <div id="occupation"></div>
-      <div id="networth"></div>
+        <input
+          class="button is-primary is-outlined"
+          type="submit"
+          value="Submit input"
+          id="submit-name-button"
+        />
+      </div>
+  
+      <div class="column box has-text-centered is-invisible" id="celebrity-details">
+        <h2 class="title is-2 is-italic" id="celebrity-name"></h2>
+        <div id="age"></div>
+        <div id="birthday"></div>
+        <div id="nationality"></div>
+        <div id="occupation"></div>
+        <div id="networth"></div>
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
