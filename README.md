@@ -9,6 +9,8 @@ A quote of the day web application.
 - https://api.jquery.com/
 - https://api-ninjas.com/api/quotes
 - https://api-ninjas.com/api/celebrity
+- https://api.jquery.com/removeclass/
+- https://bulma.io/documentation/helpers/visibility-helpers/
 
 ## Contributors
 

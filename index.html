@@ -27,8 +27,27 @@
     </div>
 
     <div class="box has-text-centered m-6">
-      <input class="input is-focused" type="text" placeholder="Focused input">
-      <input class="button is-primary is-outlined " type="submit" value="Submit input">
+      <input
+        class="input is-focused"
+        type="text"
+        placeholder="Focused input"
+        id="celebrity-input"
+      />
+      <input
+        class="button is-primary is-outlined"
+        type="submit"
+        value="Submit input"
+        id="submit-name-button"
+      />
+    </div>
+
+    <div class="box has-text-centered m-6 is-invisible" id="celebrity-details">
+      <h2 class="title is-2 is-italic" id="celebrity-name"></h2>
+      <div id="age"></div>
+      <div id="birthday"></div>
+      <div id="nationality"></div>
+      <div id="occupation"></div>
+      <div id="networth"></div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
