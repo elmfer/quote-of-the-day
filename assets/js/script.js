@@ -6,6 +6,7 @@ var birthdayEl = document.querySelector("#birthday");
 var nationalityEl = document.querySelector("#nationality");
 var occupationEl = document.querySelector("#occupation");
 var networthEl = document.querySelector("#networth");
+var celebrityImageEl = document.querySelector("#celebrity-image");
 
 var time = dayjs();
 var name;
@@ -58,6 +59,7 @@ function celebrityAPI() {
     })
     .then(function (data) {
       console.log(data);
+      celebrityImageEl.src = data.value[0].thumbnailUrl;
     });
 }
 
