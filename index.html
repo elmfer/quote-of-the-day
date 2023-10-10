@@ -10,12 +10,14 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
+    <link rel="stylesheet" href="./assets/css/style.css">
   </head>
-  <body>
+
+  <body class="has-background-light">
     <header
-      class="has-background-info has-text-white is-size-1 has-text-centered p-6"
+      class="has-text-white is-size-1 has-text-centered p-6 header-shadow"
     >
-      <h1 class="title is-1 has-text-white">Quote Of The Day</h1>
+      <h1 class="title is-1 has-text-white glowing-text">Quote Of The Day</h1>
       <h3 id="presentDay" class="is-size-3"></h3>
     </header>
 
@@ -28,7 +30,7 @@
     </div>
 
     <div class="columns mx-6">
-      <div class="column is-one-third box mr-6">
+      <div class="column box is-one-third mr-6 mb-0">
         <div class="field">
           <label class="label">Celebrity Name</label>
           <div class="control">
@@ -53,6 +55,10 @@
         <div id="networth"></div>
       </div>
     </div>
+
+    <footer>
+      
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script

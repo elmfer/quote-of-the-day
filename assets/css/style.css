@@ -1,0 +1,16 @@
+.header-shadow {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.glowing-text {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+}
+
+header {
+  background: rgb(0,105,216);
+  background: linear-gradient(0deg, rgba(0,105,216,1) 0%, rgba(88,153,255,1) 100%);
+}
+
+footer {
+  height: 1in;
+}
