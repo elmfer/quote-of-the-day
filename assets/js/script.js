@@ -6,6 +6,7 @@ var birthdayEl = document.querySelector("#birthday");
 var nationalityEl = document.querySelector("#nationality");
 var occupationEl = document.querySelector("#occupation");
 var networthEl = document.querySelector("#networth");
+var celebrityImageEl = document.querySelector("#celebrity-image");
 
 var time = dayjs();
 var name;
@@ -34,7 +35,7 @@ function celebrityAPI() {
     },
   };
 
-  fetch(celebrityURL, options, imageURL, options1)
+  fetch(celebrityURL, options)
     .then(function (response) {
       return response.json();
     })
@@ -50,6 +51,15 @@ function celebrityAPI() {
       networthEl.textContent = "Networth: " + data[0].net_worth;
       console.log(data[0].age);
       console.log(data[0].birthday);
+    });
+  //Must create a different fetch method when using multiple query URLs when fetching different APIs.
+  fetch(imageURL, options1)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      celebrityImageEl.src = data.value[0].thumbnailUrl;
     });
 }
 

@@ -14,6 +14,7 @@ A quote of the day web application.
 - https://fonts.google.com/specimen/Alegreya+Sans+SC
 - https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/bing-image-search1
 - https://stackoverflow.com/questions/48277473/center-image-in-bulma
+- https://rapidapi.com/guides/fetch-images-with-fetch-api
 
 ## Contributors
 
