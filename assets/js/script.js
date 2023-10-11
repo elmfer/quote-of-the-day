@@ -14,6 +14,8 @@ var APIKey = "oEDDv6v6z7pbtqFgBK1DQQ==U8mDL9ZgMIL4xrIy";
 
 $("#presentDay").text(time.format("dddd, MMM D, YYYY"));
 
+retrieveInfo();
+
 function celebrityAPI() {
   var name = celebrityInputEl.value;
   console.log(name);
@@ -47,50 +49,56 @@ function celebrityAPI() {
       ageEl.textContent = "Age: " + data[0].age;
       birthdayEl.textContent = "Birthday: " + data[0].birthday;
       nationalityEl.textContent = "Nationality: " + data[0].nationality;
-      occupationEl.textContent = "Occupation: " + data[0].occupation[1];
+      occupationEl.textContent = "Occupation: " + data[0].occupation.join(", ");
       networthEl.textContent = "Networth: " + data[0].net_worth;
       console.log(data[0].age);
       console.log(data[0].birthday);
-    });
- //Must create a different fetch method when using multiple query URLs when fetching different APIs.
-    fetch(imageURL, options1)
-    .then(function (response) {
-      return response.json();
+
+      var celebrityInfo = {
+        celebrityName: data[0].name,
+        age: "Age: " + data[0].age,
+        birthday: "Birthday: " + data[0].birthday,
+        nationality: "Nationality: " + data[0].nationality,
+        occupation: "Occupation: " + data[0].occupation.join(", "),
+        networth: "Networth: " + data[0].net_worth,
+      };
+
+      localStorage.setItem("celebrityInfo", JSON.stringify(celebrityInfo));
     })
-    .then(function (data) {
-      console.log(data);
-      celebrityImageEl.style.backgroundImage =
-      `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url(\"${data.value[0].thumbnailUrl}\")`;
+    .then(function () {
+      fetch(imageURL, options1)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          var storedData = localStorage.getItem("celebrityInfo");
+          var celebrityInfo = JSON.parse(storedData);
+          celebrityInfo.src = data.value[0].thumbnailUrl;
+          localStorage.setItem("celebrityInfo", JSON.stringify(celebrityInfo));
+          console.log(data);
+          celebrityImageEl.style.backgroundImage = `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url(\"${data.value[0].thumbnailUrl}\")`;
+        });
     });
+  //Must create a different fetch method when using multiple query URLs when fetching different APIs.
+}
+function retrieveInfo() {
+  var storedData = localStorage.getItem("celebrityInfo");
 
-    var celebrityInfo = {
-      celebrityName: data[0].name,
-      age: "Age: " + data[0].age,
-      birthday: "Birthday: " + data[0].birthday,
-      nationality: "Nationality: " + data[0].nationality,
-      occupation: "Occupation: " + data[0].occupation,
-      networth: "Networth: " + data[0].networth,
-    };
+  if (storedData) {
+    var celebrityInfo = JSON.parse(storedData);
 
-    localStorage.setItem("celebrityInfo", JSON.stringify(celebrityInfo));
+    celebrityNameEl.textContent = celebrityInfo.celebrityName;
+    ageEl.textContent = celebrityInfo.age;
+    birthdayEl.textContent = celebrityInfo.birthday;
+    nationalityEl.textContent = celebrityInfo.nationality;
+    occupationEl.textContent = celebrityInfo.occupation;
+    networthEl.textContent = celebrityInfo.networth;
+    celebrityImageEl.style.backgroundImage = `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url(\"${celebrityInfo.src}\")`;
+
+    $("#celebrity-details").removeClass("is-invisible");
+  } else {
+    console.log("No stored data found in local storage.");
   }
-    function retrieveInfo() {
-      var storedData = localStorage.getItem("celebrityInfo");
-    
-      if (storedData) {
-        var celebrityInfo = JSON.parse(storedData);
-    
-        celebrityNameEl.textContent = celebrityInfo.celebrityName;
-        ageEl.textContent = celebrityInfo.age;
-        birthdayEl.textContent = celebrityInfo.birthday;
-        nationalityEl.textContent = celebrityInfo.nationality;
-        occupationEl.textContent = celebrityInfo.occupation;
-        networthEl.textContent = celebrityInfo.networth;
-        
-        $("#celebrity-details").removeClass("is-invisible");
-      } else {
-        console.log("No stored data found in local storage.");
-      }
-  }
+}
 
 submitNameEl.addEventListener("click", celebrityAPI);
