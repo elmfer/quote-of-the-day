@@ -6,6 +6,7 @@ var birthdayEl = document.querySelector("#birthday");
 var nationalityEl = document.querySelector("#nationality");
 var occupationEl = document.querySelector("#occupation");
 var networthEl = document.querySelector("#networth");
+var quoteBTNEl = document.querySelector("#quote-button");
 
 var time = dayjs();
 var name;
@@ -43,3 +44,4 @@ function celebrityAPI() {
 }
 
 submitNameEl.addEventListener("click", celebrityAPI);
+
