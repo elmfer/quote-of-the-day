@@ -6,12 +6,8 @@ var birthdayEl = document.querySelector("#birthday");
 var nationalityEl = document.querySelector("#nationality");
 var occupationEl = document.querySelector("#occupation");
 var networthEl = document.querySelector("#networth");
-<<<<<<< HEAD
-var quoteBTNEl = document.querySelector("#quote-button");
-=======
 var celebrityImageEl = document.querySelector("#celebrity-image");
->>>>>>> main
-
+var quotebutonEL = document.querySelector("#quote-button");
 var time = dayjs();
 var name;
 var APIKey = "oEDDv6v6z7pbtqFgBK1DQQ==U8mDL9ZgMIL4xrIy";
@@ -19,6 +15,29 @@ var APIKey = "oEDDv6v6z7pbtqFgBK1DQQ==U8mDL9ZgMIL4xrIy";
 $("#presentDay").text(time.format("dddd, MMM D, YYYY"));
 
 retrieveInfo();
+
+function quoteAPI(){
+  var quoteURL = `https://api.api-ninjas.com/v1/quotes`;
+  var options = {
+    method: "GET",
+    headers: { "X-Api-Key": APIKey },
+    contentType: "application/json",
+  };
+  fetch(quoteURL, options)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+})
+}
+
+
+
+
+
+
+
 
 function celebrityAPI() {
   var name = celebrityInputEl.value;
@@ -106,4 +125,4 @@ function retrieveInfo() {
 }
 
 submitNameEl.addEventListener("click", celebrityAPI);
-
+quotebutonEL.addEventListener("click",quoteAPI);
