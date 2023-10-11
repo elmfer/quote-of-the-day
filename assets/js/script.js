@@ -40,6 +40,36 @@ function celebrityAPI() {
       console.log(data[0].age);
       console.log(data[0].birthday);
     });
-}
+
+    var celebrityInfo = {
+      celebrityName: data[0].name,
+      age: "Age: " + data[0].age,
+      birthday: "Birthday: " + data[0].birthday,
+      nationality: "Nationality: " + data[0].nationality,
+      occupation: "Occupation: " + data[0].occupation,
+      networth: "Networth: " + data[0].networth,
+    };
+
+    localStorage.setItem("celebrityInfo", JSON.stringify(celebrityInfo));
+  }
+    function retrieveInfo() {
+      var storedData = localStorage.getItem("celebrityInfo");
+    
+      if (storedData) {
+        var celebrityInfo = JSON.parse(storedData);
+    
+        celebrityNameEl.textContent = celebrityInfo.celebrityName;
+        ageEl.textContent = celebrityInfo.age;
+        birthdayEl.textContent = celebrityInfo.birthday;
+        nationalityEl.textContent = celebrityInfo.nationality;
+        occupationEl.textContent = celebrityInfo.occupation;
+        networthEl.textContent = celebrityInfo.networth;
+    
+        $("#celebrity-details").removeClass("is-invisible");
+      } else {
+        console.log("No stored data found in local storage.");
+      }
+  }
+  
 
 submitNameEl.addEventListener("click", celebrityAPI);
