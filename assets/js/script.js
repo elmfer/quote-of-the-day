@@ -8,15 +8,17 @@ var occupationEl = document.querySelector("#occupation");
 var networthEl = document.querySelector("#networth");
 var celebrityImageEl = document.querySelector("#celebrity-image");
 var quotebutonEL = document.querySelector("#quote-button");
+var quoteEl = document.querySelector("#quote");
+var authorEl = document.querySelector("#author");
 var time = dayjs();
 var name;
-var APIKey = "oEDDv6v6z7pbtqFgBK1DQQ==U8mDL9ZgMIL4xrIy";
+var APIKey = "ftLCewHpoQjuocXblNYhKA==Smg54gGecm04kVZF";
 
 $("#presentDay").text(time.format("dddd, MMM D, YYYY"));
 
 retrieveInfo();
 
-function quoteAPI(){
+function quoteAPI() {
   var quoteURL = `https://api.api-ninjas.com/v1/quotes`;
   var options = {
     method: "GET",
@@ -29,15 +31,10 @@ function quoteAPI(){
     })
     .then(function (data) {
       console.log(data);
-})
+      quoteEl.textContent = data[0].quote;
+      authorEl.textContent = data[0].author;
+    });
 }
-
-
-
-
-
-
-
 
 function celebrityAPI() {
   var name = celebrityInputEl.value;
@@ -125,4 +122,4 @@ function retrieveInfo() {
 }
 
 submitNameEl.addEventListener("click", celebrityAPI);
-quotebutonEL.addEventListener("click",quoteAPI);
+quotebutonEL.addEventListener("click", quoteAPI);
