@@ -6,23 +6,19 @@ var birthdayEl = document.querySelector("#birthday");
 var nationalityEl = document.querySelector("#nationality");
 var occupationEl = document.querySelector("#occupation");
 var networthEl = document.querySelector("#networth");
-<<<<<<< HEAD
-var quoteBTNEl = document.querySelector("#quote-button");
-var celebrityImageEl = document.querySelector("#celebrity-image");
-
-=======
 var celebrityImageEl = document.querySelector("#celebrity-image");
 var quotebutonEL = document.querySelector("#quote-button");
->>>>>>> 90dd9f88c068417f1dd771df5bf31343bbfd54e3
+var quoteEl = document.querySelector("#quote");
+var authorEl = document.querySelector("#author");
 var time = dayjs();
 var name;
-var APIKey = "oEDDv6v6z7pbtqFgBK1DQQ==U8mDL9ZgMIL4xrIy";
+var APIKey = "ftLCewHpoQjuocXblNYhKA==Smg54gGecm04kVZF";
 
 $("#presentDay").text(time.format("dddd, MMM D, YYYY"));
 
 retrieveInfo();
 
-function quoteAPI(){
+function quoteAPI() {
   var quoteURL = `https://api.api-ninjas.com/v1/quotes`;
   var options = {
     method: "GET",
@@ -35,15 +31,10 @@ function quoteAPI(){
     })
     .then(function (data) {
       console.log(data);
-})
+      quoteEl.textContent = data[0].quote;
+      authorEl.textContent = data[0].author;
+    });
 }
-
-
-
-
-
-
-
 
 function celebrityAPI() {
   var name = celebrityInputEl.value;
@@ -131,7 +122,4 @@ function retrieveInfo() {
 }
 
 submitNameEl.addEventListener("click", celebrityAPI);
-<<<<<<< HEAD
-=======
-quotebutonEL.addEventListener("click",quoteAPI);
->>>>>>> 90dd9f88c068417f1dd771df5bf31343bbfd54e3
+quotebutonEL.addEventListener("click", quoteAPI);
