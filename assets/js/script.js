@@ -64,12 +64,11 @@ function celebrityAPI() {
         nationalityEl.textContent = celebrityInfo.nationality;
         occupationEl.textContent = celebrityInfo.occupation;
         networthEl.textContent = celebrityInfo.networth;
-    
+        
         $("#celebrity-details").removeClass("is-invisible");
       } else {
         console.log("No stored data found in local storage.");
       }
   }
-  
 
 submitNameEl.addEventListener("click", celebrityAPI);
