@@ -17,7 +17,6 @@ var APIKey = "ftLCewHpoQjuocXblNYhKA==Smg54gGecm04kVZF";
 $("#presentDay").text(time.format("dddd, MMM D, YYYY"));
 
 retrieveInfo();
-quoteAPI();
 
 function quoteAPI() {
   quotebutonEL.classList.add('is-loading');
@@ -37,6 +36,8 @@ function quoteAPI() {
       quoteEl.textContent = `\"${data[0].quote}\"`;
       authorEl.textContent = `- ${data[0].author}`;
       celebrityInputEl.value = data[0].author;
+
+      localStorage.setItem("quote", JSON.stringify(data[0]));
     })
     .finally(function() {
       quotebutonEL.classList.remove('is-loading');
@@ -114,10 +115,21 @@ function celebrityAPI() {
   //Must create a different fetch method when using multiple query URLs when fetching different APIs.
 }
 function retrieveInfo() {
-  var storedData = localStorage.getItem("celebrityInfo");
+  var quoteStorage = localStorage.getItem("quote");
+  var celebrityInfoStorage = localStorage.getItem("celebrityInfo");
 
-  if (storedData) {
-    var celebrityInfo = JSON.parse(storedData);
+  if(quoteStorage) {
+    var quote = JSON.parse(quoteStorage);
+
+    quoteEl.textContent = `\"${quote.quote}\"`;
+    authorEl.textContent = `- ${quote.author}`;
+  } else {
+    console.log("No quotes found in local storage.");
+    quoteAPI();
+  }
+
+  if (celebrityInfoStorage) {
+    var celebrityInfo = JSON.parse(celebrityInfoStorage);
 
     celebrityNameEl.textContent = celebrityInfo.celebrityName;
     ageEl.textContent = celebrityInfo.age;
@@ -129,7 +141,7 @@ function retrieveInfo() {
 
     $("#celebrity-details").removeClass("is-invisible");
   } else {
-    console.log("No stored data found in local storage.");
+    console.log("No celebrity data found in local storage.");
   }
 }
 
