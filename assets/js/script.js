@@ -73,6 +73,7 @@ function celebrityAPI() {
     })
     .then(function (data) {
       console.log(data);
+
       //Have to access data array and use index numbers to access object. Helps access specific data.
       $("#celebrity-details").removeClass("is-invisible");
       celebrityNameEl.textContent = data[0].name;
@@ -108,6 +109,12 @@ function celebrityAPI() {
           console.log(data);
           celebrityImageEl.style.backgroundImage = `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url(\"${data.value[0].thumbnailUrl}\")`;
         });
+    })
+    .catch(function(error) {
+      $("#celebrity-details").removeClass("is-invisible");
+      celebrityNameEl.textContent = "No Celebrity Info Can Be Found";
+      celebrityImageEl.style.backgroundImage = "url(assets/images/question-mark.webp)";
+      localStorage.removeItem("celebrityInfo");
     })
     .finally(function() {
       submitNameEl.classList.remove('is-loading');
