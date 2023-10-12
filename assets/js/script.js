@@ -36,6 +36,7 @@ function quoteAPI() {
       console.log(data);
       quoteEl.textContent = `\"${data[0].quote}\"`;
       authorEl.textContent = `- ${data[0].author}`;
+      celebrityInputEl.value = data[0].author;
     })
     .finally(function() {
       quotebutonEL.classList.remove('is-loading');
