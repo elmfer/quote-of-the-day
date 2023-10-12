@@ -53,4 +53,12 @@ footer {
   background-size: cover;
   -webkit-filter: drop-shadow(0 0 5px var(--shadow));
   filter: drop-shadow(0 3px 1px var(--shadow));
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 518px) {
+  #logo {
+    width: 1in;
+    height: 1in;
+  }
 }
