@@ -19,6 +19,8 @@ $("#presentDay").text(time.format("dddd, MMM D, YYYY"));
 retrieveInfo();
 
 function quoteAPI() {
+  quotebutonEL.classList.add('is-loading');
+
   var quoteURL = `https://api.api-ninjas.com/v1/quotes`;
   var options = {
     method: "GET",
@@ -31,12 +33,20 @@ function quoteAPI() {
     })
     .then(function (data) {
       console.log(data);
-      quoteEl.textContent = data[0].quote;
-      authorEl.textContent = data[0].author;
+      quoteEl.textContent = `\"${data[0].quote}\"`;
+      authorEl.textContent = `- ${data[0].author}`;
+      celebrityInputEl.value = data[0].author;
+
+      localStorage.setItem("quote", JSON.stringify(data[0]));
+    })
+    .finally(function() {
+      quotebutonEL.classList.remove('is-loading');
     });
 }
 
 function celebrityAPI() {
+  submitNameEl.classList.add('is-loading');
+
   var name = celebrityInputEl.value;
   console.log(name);
 
@@ -63,6 +73,7 @@ function celebrityAPI() {
     })
     .then(function (data) {
       console.log(data);
+
       //Have to access data array and use index numbers to access object. Helps access specific data.
       $("#celebrity-details").removeClass("is-invisible");
       celebrityNameEl.textContent = data[0].name;
@@ -98,14 +109,34 @@ function celebrityAPI() {
           console.log(data);
           celebrityImageEl.style.backgroundImage = `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url(\"${data.value[0].thumbnailUrl}\")`;
         });
+    })
+    .catch(function(error) {
+      $("#celebrity-details").removeClass("is-invisible");
+      celebrityNameEl.textContent = "No Celebrity Info Can Be Found";
+      celebrityImageEl.style.backgroundImage = "url(assets/images/question-mark.webp)";
+      localStorage.removeItem("celebrityInfo");
+    })
+    .finally(function() {
+      submitNameEl.classList.remove('is-loading');
     });
   //Must create a different fetch method when using multiple query URLs when fetching different APIs.
 }
 function retrieveInfo() {
-  var storedData = localStorage.getItem("celebrityInfo");
+  var quoteStorage = localStorage.getItem("quote");
+  var celebrityInfoStorage = localStorage.getItem("celebrityInfo");
 
-  if (storedData) {
-    var celebrityInfo = JSON.parse(storedData);
+  if(quoteStorage) {
+    var quote = JSON.parse(quoteStorage);
+
+    quoteEl.textContent = `\"${quote.quote}\"`;
+    authorEl.textContent = `- ${quote.author}`;
+  } else {
+    console.log("No quotes found in local storage.");
+    quoteAPI();
+  }
+
+  if (celebrityInfoStorage) {
+    var celebrityInfo = JSON.parse(celebrityInfoStorage);
 
     celebrityNameEl.textContent = celebrityInfo.celebrityName;
     ageEl.textContent = celebrityInfo.age;
@@ -117,7 +148,7 @@ function retrieveInfo() {
 
     $("#celebrity-details").removeClass("is-invisible");
   } else {
-    console.log("No stored data found in local storage.");
+    console.log("No celebrity data found in local storage.");
   }
 }
 

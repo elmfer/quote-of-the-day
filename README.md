@@ -1,6 +1,11 @@
-# quote-of-the-day
+# Quote of the Day
 
-A quote of the day web application.
+A quote of the day web application. Get your daily does of quotes for wisdom, inspiration, or entertainment using this app! Additionally, you are able to read information about the author of the quote.
+
+Try it here: [https://elmfer.github.io/quote-of-the-day/](https://elmfer.github.io/quote-of-the-day/)
+
+## Screenshot
+![Screenshot](assets/images/screenshot.png)
 
 ## References
 
@@ -22,10 +27,6 @@ A quote of the day web application.
 - Itzel (Izz) Hernandez-Robles
 - Fernando Valle
 - Jose Becerra
-
-## Screenshots
-
-Insert Screenshots here
 
 ## License
 

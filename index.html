@@ -21,25 +21,33 @@
 
   <body class="has-background-light is-flex is-flex-direction-column">
     <header
-      class="has-text-white is-size-1 has-text-centered p-6 header-shadow"
+      class="has-text-grey-lighter is-size-1 is-flex p-6 header-shadow is-justify-content-center is-align-items-center"
+      style="gap: 2rem;"
     >
-      <h1 class="title is-1 has-text-white glowing-text">Quote Of The Day</h1>
-      <h3 id="presentDay" class="is-size-3"></h3>
+      <div
+        id="logo"
+      >
+      </div>
+      <div
+        class="">
+        <h1 class="title is-1 has-text-white glowing-text">Quote Of The Day</h1>
+        <h3 id="presentDay" class="is-size-3"></h3>
+      </div>
     </header>
 
     <main>
       <div class="box has-text-centered m-6">
         <h2 id="quote" class="title is-2 is-italic">
-          "The quote of the day is the best way to start the day!"
+          Hello there! Let me load the first quote for you.
         </h2>
-        <h6 id="author" class="title is-6">-Some Dude</h6>
+        <h6 id="author" class="title is-6"></h6>
         <button class="button is-info is-focused"id="quote-button">Next Quote >>></button>
       </div>
 
       <div class="columns m-6 is-align-items-start" style="gap: 1.25rem;">
         <div class="box column is-one-third mb-5 p-5">
           <div class="field">
-            <label class="label">Celebrity Name</label>
+            <label class="label">Get Celebrity Info</label>
             <div class="control">
               <input
                 class="input"
@@ -50,12 +58,11 @@
             </div>
           </div>
 
-          <input
-            class="button is-primary is-outlined"
-            type="submit"
-            value="Submit input"
+          <button
             id="submit-name-button"
-          />
+            class="button is-primary is-outlined">
+            Submit Input
+          </button>
         </div>
 
         <div
