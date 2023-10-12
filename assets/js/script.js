@@ -17,6 +17,7 @@ var APIKey = "ftLCewHpoQjuocXblNYhKA==Smg54gGecm04kVZF";
 $("#presentDay").text(time.format("dddd, MMM D, YYYY"));
 
 retrieveInfo();
+quoteAPI();
 
 function quoteAPI() {
   quotebutonEL.classList.add('is-loading');
