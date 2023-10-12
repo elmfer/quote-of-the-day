@@ -44,6 +44,8 @@ function quoteAPI() {
 }
 
 function celebrityAPI() {
+  submitNameEl.classList.add('is-loading');
+
   var name = celebrityInputEl.value;
   console.log(name);
 
@@ -105,6 +107,9 @@ function celebrityAPI() {
           console.log(data);
           celebrityImageEl.style.backgroundImage = `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url(\"${data.value[0].thumbnailUrl}\")`;
         });
+    })
+    .finally(function() {
+      submitNameEl.classList.remove('is-loading');
     });
   //Must create a different fetch method when using multiple query URLs when fetching different APIs.
 }
