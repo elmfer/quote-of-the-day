@@ -31,8 +31,8 @@ function quoteAPI() {
     })
     .then(function (data) {
       console.log(data);
-      quoteEl.textContent = data[0].quote;
-      authorEl.textContent = data[0].author;
+      quoteEl.textContent = `\"${data[0].quote}\"`;
+      authorEl.textContent = `- ${data[0].author}`;
     });
 }
 
