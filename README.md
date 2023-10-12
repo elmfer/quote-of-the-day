@@ -24,8 +24,7 @@ A quote of the day web application.
 - Jose Becerra
 
 ## Screenshots
-
-Insert Screenshots here
+![Screenshot](assets/images/screenshot.png)
 
 ## License
 
