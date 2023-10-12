@@ -19,6 +19,8 @@ $("#presentDay").text(time.format("dddd, MMM D, YYYY"));
 retrieveInfo();
 
 function quoteAPI() {
+  quotebutonEL.classList.add('is-loading');
+
   var quoteURL = `https://api.api-ninjas.com/v1/quotes`;
   var options = {
     method: "GET",
@@ -33,6 +35,9 @@ function quoteAPI() {
       console.log(data);
       quoteEl.textContent = `\"${data[0].quote}\"`;
       authorEl.textContent = `- ${data[0].author}`;
+    })
+    .finally(function() {
+      quotebutonEL.classList.remove('is-loading');
     });
 }
 
