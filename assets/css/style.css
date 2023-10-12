@@ -1,9 +1,14 @@
+:root {
+  --glow: rgba(255, 255, 255, 0.4);
+  --shadow: rgba(0, 0, 0, 0.4);
+}
+
 .header-shadow {
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 5px 20px var(--shadow);
 }
 
 .glowing-text {
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+  text-shadow: 0 0 5px var(--glow);
 }
 
 body {
@@ -39,4 +44,13 @@ footer {
   background-size: cover;
   background-position: center;
   box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#logo {
+  width: 1.25in;
+  height: 1.25in;
+  background-image: url("../images/quote-of-the-day-logo.png");
+  background-size: cover;
+  -webkit-filter: drop-shadow(0 0 5px var(--shadow));
+  filter: drop-shadow(0 3px 1px var(--shadow));
 }
